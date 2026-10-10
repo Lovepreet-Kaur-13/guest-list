@@ -1,4 +1,4 @@
-export default function GuestList({ guests }) {
+export default function GuestList({ guests, setSelectedGuest }) {
   return (
     <>
       <h1>Guest List</h1>
@@ -11,7 +11,7 @@ export default function GuestList({ guests }) {
         </thead>
         <tbody>
           {guests.map((guest) => (
-            <tr key={guest.id}>
+            <tr key={guest.id} onClick={() => setSelectedGuest(guest)}>
               <td>{guest.name}</td>
               <td>{guest.email}</td>
             </tr>
