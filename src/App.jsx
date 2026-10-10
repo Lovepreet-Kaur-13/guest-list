@@ -1,23 +1,22 @@
 import "./index.css";
 import Guests from "./Guests";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import GuestDetails from "./GuestDetails";
+import getGuests from "./api";
 
 export default function App() {
-  const guestList = [
-    {
-      id: 1,
-      name: "John roberts",
-      email: "j.roberts@gmail.com",
-    },
-    {
-      id: 2,
-      name: "Steve wells",
-      email: "s.wells@gmail.com",
-    },
-  ];
+  const [guestList, setGuestList] = useState([]);
   const [selectedGuest, setSelectedGuest] = useState(null);
+
+  const syncGuests = async () => {
+    const data = await getGuests();
+    setGuestList(data);
+  };
+
+  useEffect(() => {
+    syncGuests();
+  }, []);
 
   return (
     <>
