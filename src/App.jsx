@@ -1,4 +1,5 @@
 import "./index.css";
+import Guests from "./Guests";
 
 export default function App() {
   const guestList = [
@@ -12,33 +13,10 @@ export default function App() {
     },
   ];
 
-  function GuestList() {
-    return (
-      <>
-        <h1>Guest List</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            {guestList.map((guest) => (
-              <tr key={guest.id}>
-                <td>{guest.name}</td>
-                <td>{guest.email}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </>
-    );
-  }
   return (
     <>
       <main>
-        <GuestList />
+        <Guests guests={guestList} />
       </main>
     </>
   );
