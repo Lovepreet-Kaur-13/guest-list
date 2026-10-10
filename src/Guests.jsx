@@ -7,6 +7,7 @@ export default function GuestList({ guests, setSelectedGuest }) {
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone</th>
           </tr>
         </thead>
         <tbody>
@@ -14,6 +15,7 @@ export default function GuestList({ guests, setSelectedGuest }) {
             <tr key={guest.id} onClick={() => setSelectedGuest(guest)}>
               <td>{guest.name}</td>
               <td>{guest.email}</td>
+              <td>{guest.phone}</td>
             </tr>
           ))}
         </tbody>
