@@ -3,7 +3,7 @@ import Guests from "./Guests";
 import { useEffect, useState } from "react";
 
 import GuestDetails from "./GuestDetails";
-import getGuests from "./api";
+import { getGuests, getGuestById } from "./api";
 
 export default function App() {
   const [guestList, setGuestList] = useState([]);
@@ -12,6 +12,11 @@ export default function App() {
   const syncGuests = async () => {
     const data = await getGuests();
     setGuestList(data);
+  };
+
+  const syncSelectedGuest = async (guest) => {
+    const data = await getGuestById(guest.id);
+    setSelectedGuest(data);
   };
 
   useEffect(() => {
@@ -24,7 +29,7 @@ export default function App() {
         <Guests guests={guestList} setSelectedGuest={setSelectedGuest} />
         <GuestDetails
           guest={selectedGuest}
-          setSelectedGuest={setSelectedGuest}
+          setSelectedGuest={syncSelectedGuest}
         />
       </main>
     </>

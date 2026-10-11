@@ -9,7 +9,7 @@ export default function GuestDetails({ guest, setSelectedGuest }) {
       <p>{guest.phone}</p>
       <p>{guest.bio}</p>
       <p>{guest.job}</p>
-      <button onClick={() => setSelectedGuest(null)}>Back</button>
+      <button onClick={() => setSelectedGuest(guest.id === null)}>Back</button>
     </article>
   );
 }
