@@ -21,6 +21,7 @@ export default function App() {
 
   useEffect(() => {
     syncGuests();
+    syncSelectedGuest();
   }, []);
 
   return (
@@ -29,7 +30,7 @@ export default function App() {
         <Guests guests={guestList} setSelectedGuest={setSelectedGuest} />
         <GuestDetails
           guest={selectedGuest}
-          setSelectedGuest={syncSelectedGuest}
+          setSelectedGuest={setSelectedGuest}
         />
       </main>
     </>
